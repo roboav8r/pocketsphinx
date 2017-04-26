@@ -68,10 +68,8 @@ class ASRControl(object):
 
         rospy.loginfo("Opening the audio channel")
 
-	# I recommend installing and running audacity to help figure this out
-	# Other useful commands:
-	# pactl list short sources
-	# pacmd list-sinks
+	# Pocketsphinx requires 16kHz, mono, 16-bit little-Endian audio.
+	# See http://cmusphinx.sourceforge.net/wiki/tutorialtuning
         stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1,
                         rate=16000, input=True, frames_per_buffer=65536)
         stream.start_stream()
