@@ -1,0 +1,15 @@
+microphone:
+    chunk: 1024
+    format: 'pyaudio.paInt16'
+    channels: 1
+    rate: 16000
+    threshold: 4500
+    silence_limit: .75 #seconds where only silence is recorded before recording stops and decoding begins (i.e. silence at end of file)
+    prev_audio: 0.5 #seconds to prepend when noise is detected (prevents chopping at beginning of phrase)
+
+data_dir: '/usr/local/share/pocketsphinx/test/data'
+model_dir: '/usr/local/share/pocketsphinx/model'
+
+hmm: 'en-us/en-us' #hidden markov model
+lm: 'en-us/en-us.lm.bin' #language model
+dict: 'en-us/cmudict-en-us.dict' #dictionary

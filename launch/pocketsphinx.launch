@@ -1,0 +1,10 @@
+<launch>
+
+  <rosparam command="load" file="$(find pocketsphinx)/config/pocketsphinx.yaml" ns="pocketsphinx"/>
+
+  <arg name="_stream" value="_stream:=True" />
+  <arg name="_wavpath" value="_wavpath:=$(find pocketsphinx)/data/example.wav" />
+
+  <node name="pocketsphinx_recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen" ns="pocketsphinx" args="$(arg _stream) $(arg _wavpath)" />
+
+</launch>
